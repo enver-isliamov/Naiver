@@ -1,8 +1,7 @@
 FROM alireza7/s-ui:latest
 
 # Install socat to forward Railway's required port 80 → S-UI's web port 2095
-RUN apt-get update && apt-get install -y --no-install-recommends socat && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache socat
 
 # Copy custom entrypoint that starts S-UI then bridges port 80 → 2095
 COPY entrypoint.sh /entrypoint.sh
