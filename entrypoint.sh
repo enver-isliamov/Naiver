@@ -20,7 +20,7 @@ done
 
 # Forward Railway's public port 80 → S-UI web panel on port 2095.
 echo "Starting port bridge: 80 -> 2095"
-socat TCP-LISTEN:80,bind=0.0.0.0,reuseaddr,fork TCP:127.0.0.1:2095 &
+socat TCP-LISTEN:80,bind=0.0.0.0,reuseaddr,fork TCP6:[::1]:2095 &
 
 # Keep the container alive by waiting on the S-UI process.
 wait $S_UI_PID
